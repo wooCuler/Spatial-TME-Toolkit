@@ -73,15 +73,14 @@ QC (qc.py)
 
 **1. 공간 구획화.** 세포 유형을 4개 기능 구역(Tumor-suspect epithelial / Normal-like epithelium /
 Immune / Stroma)으로 압축했을 때, Tumor-suspect epithelial와 Normal-like epithelium가 조직 내에서 서로
-다른 영역을 차지하며 공간적으로 분리되었다. Neighborhood enrichment에서도 종양
-상피와 정상 기도 상피·T세포 간에 음의 z-score(상호 배제)가 관찰되었다.
+다른 영역을 차지하며 공간적으로 분리되었다. Neighborhood enrichment에서도 Tumor epithelial와 Normal Airway epithelial·T cell 간에 음의 z-score(상호 배제)가 관찰되었다.
 
 ![TME 4구역 공간 분포](figures/tme_zone_4region.png)
 
 *그림 1. 세포 유형을 Tumor-suspect epithelial/Normal-like epithelium/Immune/Stroma 4구역으로 압축한 공간 지도
 (노트북 2-13).*
 
-**2. 종양 코어의 림프구 배제.** Tumor-suspect epithelial를 기준으로 한 근거리(0–200µm)
+**2. 종양 코어의 림프구 배제.** Tumor epithelial를 기준으로 한 근거리(0–200µm)
 동시출현 분석에서, T·B·Plasma 림프구가 종양세포 근접(약 20µm, 세포 1–2개 거리)
 구간에서 크게 배제되었고(비율 ≈ 0), 거리가 멀어질수록 서서히 회복되었다. 거리에
 따른 회복은 이 패턴이 Immune-desert가 아닌 **Immune-excluded**임을
@@ -90,22 +89,22 @@ B세포가 가장 뚜렷하게 배제되었다.
 
 ![근거리 co-occurrence 확대](figures/cooccurrence_lymphocyte_zoom.png)
 
-*그림 2. Tumor-suspect epithelial 3종 각각을 기준으로 한 0–200µm 근거리 co-occurrence 확률비.
+*그림 2. Tumor epithelial 3종 각각을 기준으로 한 0–200µm 근거리 co-occurrence 확률비.
 T/B/Plasma 림프구만 강조(나머지 세포유형은 회색 배경선), 점선은 baseline(=1) (노트북 3-7).*
 
-**3. Tumor-Stroma 결합과 억제 신호.** LR 분석에서 Tumor-suspect epithelial와 Stroma(fibroblast)·
+**3. Tumor-Stroma 결합과 억제 신호.** LR 분석에서 Tumor epithelial와 Stroma(fibroblast)·
 혈관(endothelial) 사이에 IGF1(→EGFR/ERBB2/PDGFR), EDN1, VCAN|EGFR, TNC|EGFR 등
 성장·기질 리모델링 신호가 강하게 나타났다. 반면 종양-림프구 접점에서는 케모카인
 (CXCL9/10, CCL5 등)과 함께 억제성 신호(HLA-DQB2|LAG3 등)가 관찰되었다.
 
 ![LR: Tumor→Lymophocyte](figures/ligrec_tumor_to_lymphocyte.png)
 
-*그림 3a. Tumor-suspect epithelial(sender) → T/B/Plasma 림프구(receiver) 방향 유의미한(p<0.05)
+*그림 3a. Tumor epithelial(sender) → T/B/Plasma 림프구(receiver) 방향 유의미한(p<0.05)
 리간드-수용체 쌍 (노트북 4-2).*
 
 ![LR: Tumor↔Stroma](figures/ligrec_tumor_stroma.png)
 
-*그림 3b. Tumor-suspect epithelial ↔ Fibroblast/Endothelial 양방향 유의미한(p<0.05)
+*그림 3b. Tumor epithelial ↔ Fibroblast/Endothelial 양방향 유의미한(p<0.05)
 리간드-수용체 쌍 (노트북 4-3).*
 
 이러한 특징은 림프구가 종양 코어에 침투하지 못하고 경계·기질에 머무는 **Immune-excluded tumor microenvironment**에 부합한다. Tumor-Stroma가 성장 신호로 긴밀히 결합해 물리적 장벽을
