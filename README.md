@@ -67,49 +67,48 @@ QC (qc.py)
 | Airway epithelial (CYP2B6+/CFTR+) | CYP2B6, CFTR |
 | Ciliated epithelial | SNTN, DNAAF1, C20orf85 |
 
-## 핵심 발견: 면역 배제형 미세환경
+## 핵심 발견: Immune-excluded tumor microenvironment
 
 세 층위의 분석이 하나의 일관된 그림으로 수렴하였다.
 
-**1. 공간 구획화.** 세포 유형을 4개 기능 구역(종양 추정 상피 / 정상형 상피 /
-면역 / 기질)으로 압축했을 때, 종양 추정 상피와 정상형 상피가 조직 내에서 서로
+**1. 공간 구획화.** 세포 유형을 4개 기능 구역(Tumor-suspect epithelial / Normal-like epithelium /
+Immune / Stroma)으로 압축했을 때, Tumor-suspect epithelial와 Normal-like epithelium가 조직 내에서 서로
 다른 영역을 차지하며 공간적으로 분리되었다. Neighborhood enrichment에서도 종양
 상피와 정상 기도 상피·T세포 간에 음의 z-score(상호 배제)가 관찰되었다.
 
 ![TME 4구역 공간 분포](figures/tme_zone_4region.png)
 
-*그림 1. 세포 유형을 종양 추정 상피/정상형 상피/면역/기질 4구역으로 압축한 공간 지도
+*그림 1. 세포 유형을 Tumor-suspect epithelial/Normal-like epithelium/Immune/Stroma 4구역으로 압축한 공간 지도
 (노트북 2-13).*
 
-**2. 종양 코어의 림프구 배제.** 종양 추정 상피를 기준으로 한 근거리(0–200µm)
+**2. 종양 코어의 림프구 배제.** Tumor-suspect epithelial를 기준으로 한 근거리(0–200µm)
 동시출현 분석에서, T·B·Plasma 림프구가 종양세포 근접(약 20µm, 세포 1–2개 거리)
 구간에서 크게 배제되었고(비율 ≈ 0), 거리가 멀어질수록 서서히 회복되었다. 거리에
-따른 회복은 이 패턴이 면역 사막형(desert)이 아닌 **면역 배제형(excluded)**임을
+따른 회복은 이 패턴이 Immune-desert가 아닌 **Immune-excluded**임을
 시사한다. 배제 강도는 종양 아형에 따라 달랐으며(MYC+/MET+에서 가장 강함),
 B세포가 가장 뚜렷하게 배제되었다.
 
 ![근거리 co-occurrence 확대](figures/cooccurrence_lymphocyte_zoom.png)
 
-*그림 2. 종양 추정 상피 3종 각각을 기준으로 한 0–200µm 근거리 co-occurrence 확률비.
+*그림 2. Tumor-suspect epithelial 3종 각각을 기준으로 한 0–200µm 근거리 co-occurrence 확률비.
 T/B/Plasma 림프구만 강조(나머지 세포유형은 회색 배경선), 점선은 baseline(=1) (노트북 3-7).*
 
-**3. 종양-기질 결합과 억제 신호.** LR 분석에서 종양 추정 상피와 기질(fibroblast)·
+**3. Tumor-Stroma 결합과 억제 신호.** LR 분석에서 Tumor-suspect epithelial와 Stroma(fibroblast)·
 혈관(endothelial) 사이에 IGF1(→EGFR/ERBB2/PDGFR), EDN1, VCAN|EGFR, TNC|EGFR 등
 성장·기질 리모델링 신호가 강하게 나타났다. 반면 종양-림프구 접점에서는 케모카인
 (CXCL9/10, CCL5 등)과 함께 억제성 신호(HLA-DQB2|LAG3 등)가 관찰되었다.
 
-![LR: 종양→림프구](figures/ligrec_tumor_to_lymphocyte.png)
+![LR: Tumor→Lymophocyte](figures/ligrec_tumor_to_lymphocyte.png)
 
-*그림 3a. 종양 추정 상피(sender) → T/B/Plasma 림프구(receiver) 방향 유의미한(p<0.05)
+*그림 3a. Tumor-suspect epithelial(sender) → T/B/Plasma 림프구(receiver) 방향 유의미한(p<0.05)
 리간드-수용체 쌍 (노트북 4-2).*
 
-![LR: 종양↔기질](figures/ligrec_tumor_stroma.png)
+![LR: Tumor↔Stroma](figures/ligrec_tumor_stroma.png)
 
-*그림 3b. 종양 추정 상피 ↔ Fibroblast/Endothelial 양방향 유의미한(p<0.05)
+*그림 3b. Tumor-suspect epithelial ↔ Fibroblast/Endothelial 양방향 유의미한(p<0.05)
 리간드-수용체 쌍 (노트북 4-3).*
 
-이러한 특징은 림프구가 종양 코어에 침투하지 못하고 경계·기질에 머무는 **면역
-배제형 미세환경**에 부합한다. 종양-기질이 성장 신호로 긴밀히 결합해 물리적 장벽을
+이러한 특징은 림프구가 종양 코어에 침투하지 못하고 경계·기질에 머무는 **Immune-excluded tumor microenvironment**에 부합한다. Tumor-Stroma가 성장 신호로 긴밀히 결합해 물리적 장벽을
 형성하고, 접점의 억제 신호가 림프구 침투를 제한하는 구조로 해석할 수 있다. 이는
 면역항암제 반응성이 낮은 종양의 전형적 공간 패턴으로, 치료 전략 관점에서는 기질
 장벽을 완화하거나 배제 신호를 차단하는 접근이 필요함을 시사한다.
@@ -135,7 +134,7 @@ generalizable conclusions.
 ## 방법론 한계 (Limitations)
 
 - **단일 섹션 기반 관찰**: 모든 결과는 폐 선암 조직 1개 Xenium 섹션에 대한 관찰이다.
-  종양 코어의 림프구 배제, 종양-기질 결합 등의 패턴은 해당 섹션에 한정된 관찰이며,
+  종양 코어의 림프구 배제, Tumor-Stroma 결합 등의 패턴은 해당 섹션에 한정된 관찰이며,
   환자 집단이나 폐 선암 일반에 대한 결론으로 일반화하지 않는다.
 - **종양세포 판정의 근거 수위**: "Tumor epithelial" 라벨은 EPCAM 등 상피 마커와
   MYC/MET 등 오코진 발현, 그리고 정상 상피와의 공간적 분리에 근거한 추정이다.
@@ -145,8 +144,8 @@ generalizable conclusions.
   공간적 근접성을 직접 고려하지 않으며 리간드-수용체의 발현 공존이 실제 물리적
   상호작용을 보장하지 않는다. 따라서 공간(co-occurrence)과 발현(LR) 근거를 별도로
   제시하고, 둘을 종합해 가설을 세우는 방식으로 해석하였다.
-- **"면역 배제형" 해석의 범위**: 본 분석은 면역 배제형에 부합하는 공간·발현
-  패턴을 관찰한 것이며, 병리학적 검증(예: 면역염색)이 동반된 확정 진단은 아니다.
+- **"Immune-excluded" 해석의 범위**: 본 분석은 Immune-excluded에 부합하는 공간·발현
+  패턴을 관찰한 것이며, 병리학적 검증(예: Immunostaining)이 동반된 확정 진단은 아니다.
   배제의 원인(기질 장벽 대 억제 신호)은 가설 수준이다.
 - **마커 기반 주석의 주관성**: 마커 유전자 세트 및 클러스터링 resolution 선택에
   따라 세포 유형 분류 결과가 달라질 수 있다.
