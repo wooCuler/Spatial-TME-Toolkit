@@ -76,6 +76,11 @@ QC (qc.py)
 다른 영역을 차지하며 공간적으로 분리되었다. Neighborhood enrichment에서도 종양
 상피와 정상 기도 상피·T세포 간에 음의 z-score(상호 배제)가 관찰되었다.
 
+![TME 4구역 공간 분포](figures/tme_zone_4region.png)
+
+*그림 1. 세포 유형을 종양 추정 상피/정상형 상피/면역/기질 4구역으로 압축한 공간 지도
+(노트북 2-13).*
+
 **2. 종양 코어의 림프구 배제.** 종양 추정 상피를 기준으로 한 근거리(0–200µm)
 동시출현 분석에서, T·B·Plasma 림프구가 종양세포 근접(약 20µm, 세포 1–2개 거리)
 구간에서 크게 배제되었고(비율 ≈ 0), 거리가 멀어질수록 서서히 회복되었다. 거리에
@@ -83,10 +88,25 @@ QC (qc.py)
 시사한다. 배제 강도는 종양 아형에 따라 달랐으며(MYC+/MET+에서 가장 강함),
 B세포가 가장 뚜렷하게 배제되었다.
 
+![근거리 co-occurrence 확대](figures/cooccurrence_lymphocyte_zoom.png)
+
+*그림 2. 종양 추정 상피 3종 각각을 기준으로 한 0–200µm 근거리 co-occurrence 확률비.
+T/B/Plasma 림프구만 강조(나머지 세포유형은 회색 배경선), 점선은 baseline(=1) (노트북 5-7).*
+
 **3. 종양-기질 결합과 억제 신호.** LR 분석에서 종양 추정 상피와 기질(fibroblast)·
 혈관(endothelial) 사이에 IGF1(→EGFR/ERBB2/PDGFR), EDN1, VCAN|EGFR, TNC|EGFR 등
 성장·기질 리모델링 신호가 강하게 나타났다. 반면 종양-림프구 접점에서는 케모카인
 (CXCL9/10, CCL5 등)과 함께 억제성 신호(HLA-DQB2|LAG3 등)가 관찰되었다.
+
+![LR: 종양→림프구](figures/ligrec_tumor_to_lymphocyte.png)
+
+*그림 3a. 종양 추정 상피(sender) → T/B/Plasma 림프구(receiver) 방향 유의미한(p<0.05)
+리간드-수용체 쌍 (노트북 3-2).*
+
+![LR: 종양↔기질](figures/ligrec_tumor_stroma.png)
+
+*그림 3b. 종양 추정 상피 ↔ Fibroblast/Endothelial 양방향 유의미한(p<0.05)
+리간드-수용체 쌍 (노트북 3-3).*
 
 이러한 특징은 림프구가 종양 코어에 침투하지 못하고 경계·기질에 머무는 **면역
 배제형 미세환경**에 부합한다. 종양-기질이 성장 신호로 긴밀히 결합해 물리적 장벽을

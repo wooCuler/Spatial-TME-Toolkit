@@ -4,9 +4,15 @@ channels:
   - bioconda
 dependencies:
   - python=3.11
+  - numpy
+  - pandas
+  - matplotlib
   - scanpy
   - squidpy
   - anndata
-  - leidenalg
+  - spatialdata
+  - spatialdata-io
+  - python-igraph  # sc.tl.leiden(..., flavor="igraph")가 사용 (leidenalg 아님)
+  - omnipath       # sq.gr.ligrec 기본 인터랙션 DB(OmniPath) 조회에 필요
   - jupyter
   - ipykernel
